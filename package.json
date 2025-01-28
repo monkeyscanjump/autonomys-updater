@@ -1,0 +1,20 @@
+{
+  "name": "autonomys-updater",
+  "version": "1.0.0",
+  "description": "Autonomys Subspace binary updater",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "watch": "tsc -w",
+    "pm2": "pm2 start ecosystem.config.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "winston": "^3.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "typescript": "^5.0.4"
+  }
+}

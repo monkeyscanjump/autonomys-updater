@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build output
+dist/
+
+# Logs
+*.log
+logs/
+error.log
+output.log
+combined.log
+
+# Runtime files
+subspace-config.json
+subspace-node
+subspace-farmer
+/temp/
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Downloaded binaries
+subspace-*
