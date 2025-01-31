@@ -9,7 +9,7 @@ module.exports = {
     max_memory_restart: '200M',
     error_file: 'error.log',
     out_file: 'output.log',
-    merge_logs: true,
+    merge_logs: false,
     log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
   }]
 };

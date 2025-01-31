@@ -13,7 +13,7 @@ output.log
 combined.log
 
 # Runtime files
-subspace-config.json
+updater-config.json
 subspace-node
 subspace-farmer
 /temp/

@@ -10,17 +10,20 @@ export async function getLatestTag(): Promise<string | null> {
       timeout: 10000
     });
 
-    if (response.headers.location) {
-      const tag = response.headers.location.split('/').pop();
-      if (tag && 
-          tag.startsWith(config.github.tagPrefix) && 
-          /mainnet-\d{4}-[a-z]+-\d{1,2}/.test(tag)) {
-        return tag;
-      }
-    }
-    return null;
+    const tag = extractTagFromLocation(response.headers.location);
+    return isValidTag(tag) ? tag : null;
   } catch (error) {
     logger.error('Error fetching latest tag:', error);
     return null;
   }
+}
+
+function extractTagFromLocation(location: string | undefined): string | null {
+  if (!location) return null;
+  return location.split('/').pop() || null;
+}
+
+function isValidTag(tag: string | null): boolean {
+  if (!tag) return false;
+  return tag.startsWith(config.github.tagPrefix) && /mainnet-\d{4}-[a-z]+-\d{1,2}/.test(tag);
 }

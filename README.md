@@ -43,7 +43,9 @@ autonomys-updater/
 │   │   ├── github.utils.ts  # GitHub API interactions
 │   │   └── logger.utils.ts  # Logging utility
 │   └── main.ts           # Main application logic
-├── ecosystem.config.js    # PM2 configuration
+├── farmer.config.js    # Farmer(s) PM2 configuration
+├── node.config.js    # Node PM2 configuration
 ├── package.json
-└── tsconfig.json
+├── tsconfig.json
+└── updater.config.js    # Updater PM2 configuration
 ```

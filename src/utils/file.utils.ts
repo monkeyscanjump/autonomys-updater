@@ -11,7 +11,7 @@ const execAsync = promisify(exec);
 
 export async function downloadFile(fileInfo: FileInfo): Promise<DownloadResult> {
   const tempPath = path.join(config.paths.temp, fileInfo.originalName);
-  
+
   try {
     const response = await axios({
       url: fileInfo.url,
@@ -28,7 +28,15 @@ export async function downloadFile(fileInfo: FileInfo): Promise<DownloadResult> 
       writer.on('error', reject);
     });
 
-    await execAsync(`chmod +x "${tempPath}"`);
+    // Only make the file executable if it's not a Windows .exe file
+    if (!fileInfo.originalName.toLowerCase().endsWith('.exe')) {
+      try {
+        await execAsync(`chmod +x "${tempPath}"`);
+      } catch (error) {
+        logger.error(`Error making file executable: ${fileInfo.name}`, error);
+        // Don't fail the download just because chmod failed
+      }
+    }
     return { success: true };
   } catch (error) {
     logger.error(`Error downloading file ${fileInfo.name}:`, error);
