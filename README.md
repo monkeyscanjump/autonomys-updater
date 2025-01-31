@@ -25,10 +25,24 @@ git clone https://github.com/yourusername/autonomys-updater.git
 cd autonomys-updater
 # Install dependencies
 npm install
+```
+
+### Configure binaries
+
+Edit file `src/config.ts` > `config.files` array list with OS and use case speciffic Autonomys binaries.
+
+## Start the Updater
+
+```bash
 # Build the project
 npm run build
 # Start Updater with PM2
 npm run updater
+```
+
+### Additional PM2 processes for running an Autonomys Node and Farmer(s)
+
+```bash
 # Start Node with PM2
 npm run node
 # Start Farmer(s) with PM2
