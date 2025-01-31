@@ -59,7 +59,7 @@ Handles the node needed for farmers and will restart whenever a new version of t
 
 Handles the farmer or farmers and will restart whenever a new version of the node binary has been downloaded, based on `updater-config.json` (file will update once a new version of the binaries are available).
 
-## Ensure PM2 processes are saved in order to restart them on OS restart
+## Ensure PM2 processes are saved in order to restart them on reboot
 
 ```bash
 pm2 save
