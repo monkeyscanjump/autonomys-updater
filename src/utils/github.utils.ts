@@ -25,5 +25,5 @@ function extractTagFromLocation(location: string | undefined): string | null {
 
 function isValidTag(tag: string | null): boolean {
   if (!tag) return false;
-  return tag.startsWith(config.github.tagPrefix) && /mainnet-\d{4}-[a-z]+-\d{1,2}/.test(tag);
+  return tag.startsWith(config.github.tagPrefix);
 }

@@ -27,9 +27,45 @@ cd autonomys-updater
 npm install
 # Build the project
 npm run build
-# Start with PM2
-npm run pm2
+# Start Updater with PM2
+npm run updater
+# Start Node with PM2
+npm run node
+# Start Farmer(s) with PM2
+npm run farmer
 ```
+
+## PM2 Start on OS boot
+
+```bash
+pm2 startup
+```
+
+## PM2 Process files
+
+### updater.config.js
+
+Handles the auto-update logic and will restart whenever `dist/config.js` is updated.
+
+### node.config.js
+
+> Optional PM2 process file. Custom edits needed.
+
+Handles the node needed for farmers and will restart whenever a new version of the node binary has been downloaded, based on `updater-config.json` (file will update once a new version of the binaries are available).
+
+### farmer.config.js
+
+> Optional PM2 process file. Custom edits needed.
+
+Handles the farmer or farmers and will restart whenever a new version of the node binary has been downloaded, based on `updater-config.json` (file will update once a new version of the binaries are available).
+
+## Ensure PM2 processes are saved in order to restart them on OS restart
+
+```bash
+pm2 save
+```
+
+### [PM2 Guide](https://pm2.keymetrics.io/docs/usage/quick-start/)
 
 ## Project Structure
 
@@ -47,5 +83,5 @@ autonomys-updater/
 ├── node.config.js    # Node PM2 configuration
 ├── package.json
 ├── tsconfig.json
-└── updater.config.js    # Updater PM2 configuration
+└── updater-config.js    # Updater PM2 configuration
 ```

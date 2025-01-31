@@ -14,8 +14,6 @@ combined.log
 
 # Runtime files
 updater-config.json
-subspace-node
-subspace-farmer
 /temp/
 
 # IDE and Editor files
