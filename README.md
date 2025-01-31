@@ -12,7 +12,7 @@ This service automatically checks for and downloads the latest Autonomys Network
 - npm
 - PM2 (`npm install -g pm2`)
 - Sufficient disk space for binary downloads
-- Write permissions in the installation directory
+- Write permissions in the installation directory (repo root directory)
 
 ## Installation
 
@@ -20,7 +20,7 @@ This service automatically checks for and downloads the latest Autonomys Network
 
 ```bash
 # Clone repo
-git clone https://github.com/yourusername/autonomys-updater.git
+git clone https://github.com/monkeyscanjump/autonomys-updater.git
 # Go to repo folder
 cd autonomys-updater
 # Install dependencies
